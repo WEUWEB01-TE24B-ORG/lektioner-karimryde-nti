@@ -1,0 +1,29 @@
+body {
+    background-color: #c4a1a1;
+    background-image: url(./bilder/sergey-shmidt-koy6FlCCy5s-unsplash.jpg);
+    background-size: cover;
+    margin: 100px;
+}
+h1 {
+    color: #e06ae0;
+    font-size: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 2px 10px black;
+    text-align: center;
+}
+p {
+    color: purple;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rad1 {
+    color: pink;
+}
+.rad2 {
+    color: palevioletred;
+}
+a {
+    color: yellowgreen;
+    font-size: 40px;
+    font-weight: bold;
+}
