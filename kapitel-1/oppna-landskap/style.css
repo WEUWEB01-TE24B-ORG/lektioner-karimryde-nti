@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Nothing+You+Could+Do&display=swap');
+body {
+    background-image: url(./bilder/bakgrund.png);
+    padding: 50px;
+}
+
+h1 {
+    font-family: "Nothing You Could Do", cursive;
+    color: #FFF;
+    text-shadow: 2px 2px 1px #111;
+    font-size: 70px;
+}
+
+p {
+    font-family: "Mea Culpa", cursive;
+    font-size: 20px;
+    color: #FFF;
+    background-color: #1e83e8aa;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px #111;
+}
+
+a {
+    color: #FFF;
+}
