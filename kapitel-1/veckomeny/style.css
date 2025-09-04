@@ -1,0 +1,31 @@
+body {
+    background-color: #da9292;
+}
+table {
+    width: 1000px;
+    background-color: #EEE;
+    border-spacing: 15px;
+    margin: auto;
+}
+caption {
+    background-image: url(./bilder/harisankar-sahoo-h081Jkm_SaI-unsplash.jpg);
+    font-size: 50px;
+    padding: 20px;
+}
+tr {
+
+}
+th {
+    font-size: 25px;
+    padding: 10px;
+}
+td {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+img {
+    width: 100%;
+}
