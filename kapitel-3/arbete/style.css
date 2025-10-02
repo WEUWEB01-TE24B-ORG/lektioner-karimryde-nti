@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+DE+SAS:wght@100..400&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body.sida1 {
+    background-image: url(./bilder/pattern1.jpg);
+}
+body.sida2 {
+    background-image: url(./bilder/pattern2.jpg);
+}
+body.sida3 {
+    background-image: url(./bilder/pattern3.webp);
+}
+body.sida4 {
+    background-image: url(./bilder/pattern4.webp);
+}
+body.sida5 {
+    background-image: url(./bilder/pattern5.jpg);
+}
+body.sida6 {
+    background-image: url(./bilder/pattern6.webp);
+}
+div {
+    background-color: #fff;
+    width: 600px;
+    padding: 50px;
+    margin: 100px auto;
+    font-family: "Arvo", serif;
+    border: 10px dotted #818181;
+}
+h1 {
+    font-family: "Playwrite DE SAS", cursive;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+a {
+    font-size: 30px;
+    text-decoration: none;
+    color: red;
+}
