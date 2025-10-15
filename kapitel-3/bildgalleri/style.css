@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --gray: #7E7D7Dff;
+    --old-rose: #C47783ff;
+    --van-dyke: #382E2Aff;
+    --night: #0E100Aff;
+}
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+    color: #FFF;
+}
+div.kontainer {
+    width: 800px;
+    margin: auto;
+    padding: 30px;
+    font-family: "Noto Sans", sans-serif;
+}
+h1 {
+    font-family: "Faster One", system-ui;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+p.intro {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+div.box {
+    background-color: var(--gray);
+    padding: 40px;
+    margin-bottom: 40px;
+    display: flex;
+}
+div.reverse {
+    flex-direction: row-reverse;
+}
+img {
+    width: 50%;
+    margin-right: 30px;
+}
+p.bildtext {}
