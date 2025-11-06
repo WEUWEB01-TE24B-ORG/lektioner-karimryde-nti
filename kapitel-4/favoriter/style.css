@@ -19,3 +19,60 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
     padding: 0;
 }
 
+/* Utseende på sidan */
+body {
+    background-color: var(--prussian-blue);
+}
+.kontainer {
+    width: 900px;
+    margin: auto;
+    padding: 30px;
+    background-color: #CCC;
+    font-family: Comfortaa;
+}
+.kontainer h1 {
+    font-family: Chicle;
+    font-size: 80px;
+    color: var(--ut-orange);
+    text-align: center;
+    margin-bottom: 40px;
+}
+.kontainer .meny {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.kontainer .meny a {
+    text-decoration: none;
+    background-color: var(--ut-orange);
+    padding: 10px;
+    margin-right: 5px;
+    width: 150px;
+    display: inline-block;
+    color: #fff;
+}
+.kontainer .meny a:hover {
+    background-color: var(--selective-yellow);
+}
+.kontainer .meny a.aktiv {
+    background-color: var(--selective-yellow);
+}
+.kontainer h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.kontainer figure {
+    background-color: #fff;
+    width: 50%;
+    padding: 30px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.kontainer figure img {
+    width: 100%;
+}
+.kontainer figure figcaption {}
+.kontainer p {
+    margin-bottom: 15px;
+}
+.kontainer p a {}
