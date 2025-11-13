@@ -1,0 +1,39 @@
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.kontainer {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 0px 5px;
+}
+.kontainer .meny {
+    background: #d45c5c;
+    grid-column: 2/6;
+    grid-row: 1;
+}
+.kontainer .artikel {
+    background: #7fa039;
+    grid-column: 2/3;
+    grid-row: 2;
+}
+.kontainer img {
+    background: #395aa0;
+    grid-column: 3/4;
+    grid-row: 2;
+}
+.kontainer .sidfot {
+    background: #e04d83;
+    grid-column: 2/6;
+    grid-row: 3;
+}

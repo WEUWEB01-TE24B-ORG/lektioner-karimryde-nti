@@ -15,9 +15,9 @@
     "sessionlogger.enabled": false,
     "explorer.compactFolders": false,
     "explorer.sortOrderLexicographicOptions": "unicode",
-    "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor"
-    },
+    // "workbench.editorAssociations": {
+    //     "*.md": "vscode.markdown.preview.editor"
+    // },
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,

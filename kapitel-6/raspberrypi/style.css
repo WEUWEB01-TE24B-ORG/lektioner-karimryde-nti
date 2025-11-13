@@ -40,6 +40,8 @@ body {
     background-color: #fff;
     border-radius: 20px;
     padding-bottom: 10px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
 }
 .kontainer .kolumner-3 .kolumn:hover {
     box-shadow: 0 5px 5px #AAA;
