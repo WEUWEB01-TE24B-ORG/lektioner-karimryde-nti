@@ -32,31 +32,66 @@ body {
 }
 
 /* Sidhuvudets utseende */
-.kontainer .sidhuvud {}
+.kontainer .sidhuvud {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
 .kontainer .sidhuvud img {
     width: 70px;
 }
 .kontainer .sidhuvud a {
     color: var(--brun-text);
     text-decoration: none;
+    margin-top: 25px;
 }
-.kontainer .sidhuvud a.hitta {}
+.kontainer .sidhuvud a.hitta {
+    background-color: var(--röd);
+    color: var(--beige);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    margin-left: 100px;
+}
 
 /* Orange band */
 .kontainer .band {
     background-color: var(--orange);
+    padding: 20px;
+    margin-bottom: 30px;
 }
-.kontainer .band h1 {}
+.kontainer .band h1 {
+    color: var(--beige);
+}
 
 /* Innehållets utseende */
 .kontainer .innehall {}
-.kontainer .innehall  h2 {}
+.kontainer .innehall  h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
 .kontainer .innehall .kolumner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
 }
-.kontainer .innehall .kolumner .box {}
+.kontainer .innehall .kolumner .box {
+    /* background-color: var(--beige); */
+    background: linear-gradient(to bottom, var(--beige) 50%, transparent 50%);
+    background-position: 0% 60%;
+    background-size: 100% 200%;
+    border-radius: 15px;
+    text-align: center;
+    padding: 40px;
+    /* transition: background-color 0.5s; */
+    transition: background-position 0.3s;
+    cursor: pointer;
+}
+.kontainer .innehall .kolumner .box:hover {
+    background-position: 0 0;
+}
+
 .kontainer .innehall .kolumner .box img {
     width: 100%;
 }
