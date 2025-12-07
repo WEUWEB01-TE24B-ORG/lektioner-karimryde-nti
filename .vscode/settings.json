@@ -15,21 +15,46 @@
     "sessionlogger.enabled": false,
     "explorer.compactFolders": false,
     "explorer.sortOrderLexicographicOptions": "unicode",
-    "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor"
-    },
+    // "workbench.editorAssociations": {
+    //     "*.md": "vscode.markdown.preview.editor"
+    // },
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
     },
-  "extensions.allowed": {
-    "emmanuelbeziat.vscode-great-icons": true,
-    "chrisdias.vscode-opennewinstance": true,
-    "k--kato.docomment": true,
-    "eliostruyf.vscode-hide-comments": true,
-    "angelo-breuer.clock": true,
-    "GitHub.copilot": false
-  },
+    "extensions.allowed": {
+        "emmanuelbeziat.vscode-great-icons": true,
+        "chrisdias.vscode-opennewinstance": true,
+        "k--kato.docomment": true,
+        "eliostruyf.vscode-hide-comments": true,
+        "angelo-breuer.clock": true,
+        "GitHub.copilot": false
+    },
+    "editor.tokenColorCustomizations": {
+        "[Sublime Monokai]": {
+            "comments": "#b9b9b9",
+            "keywords": "#ff4b4b",
+            "textMateRules": [
+                {
+                    "scope": "entity.name.tag",
+                    "settings": {
+                        "foreground": "#ff4b4b"
+                    }
+                }
+            ]
+        },
+        "[Visual Studio Light]": {
+            "textMateRules": [
+                {
+                    "scope": "variable.parameter",
+                    "settings": {
+                        "foreground": "#1a93e4"
+                    }
+                }
+            ]
+        },
+        "textMateRules": []
+    },
 }

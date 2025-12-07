@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Slabo+27px&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --eggshell: #f4f1deff;
+    --burnt-sienna: #e07a5fff;
+    --delft-blue: #3d405bff;
+    --cambridge-blue: #81b29aff;
+    --sunset: #f2cc8fff;
+}
+
+body {
+    background-color: #000;
+}
+div.kontainer {
+    background-color: var(--sunset);
+    width: 800px;
+    padding: 70px;
+    margin: auto;
+    font-family: "Slabo 27px", serif;
+}
+h1 {
+    font-size: 60px;
+    font-family: "Original Surfer", sans-serif;
+    margin-bottom: 30px;
+}
+div.inlagg {
+    background-color: var(--burnt-sienna);
+    padding: 40px;
+    margin-bottom: 30px;
+}
+img {
+    width: 400px;
+    border: 15px solid #FFF;
+    box-shadow: 2px 2px 10px #333;
+    display: block; /* Trick för att centrera bild */
+    margin: auto;
+    margin-bottom: 20px;
+}
+h2 {
+    margin-bottom: 30px;
+}
+p.datum {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+p.texten {
+    margin-bottom: 20px;
+}

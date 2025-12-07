@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange: #FF8732;
+    --ljus-beige: #FBF7F1;
+    --brun-text: #502314;
+    --beige: #F5EBDC;
+    --röd: #D62300;
+}
+
+/* Sidans utseende */
+body {
+    background-color: var(--ljus-beige);
+}
+.kontainer {
+    font-family: Chango, sans-serif;
+    color: var(--brun-text);
+    width: 1200px;
+    margin: auto;
+}
+
+/* Sidhuvudets utseende */
+.kontainer .sidhuvud {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.kontainer .sidhuvud img {
+    width: 70px;
+}
+.kontainer .sidhuvud a {
+    color: var(--brun-text);
+    text-decoration: none;
+    margin-top: 25px;
+}
+.kontainer .sidhuvud a.hitta {
+    background-color: var(--röd);
+    color: var(--beige);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    margin-left: 100px;
+}
+
+/* Orange band */
+.kontainer .band {
+    background-color: var(--orange);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.kontainer .band h1 {
+    color: var(--beige);
+}
+
+/* Innehållets utseende */
+.kontainer .innehall {}
+.kontainer .innehall  h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.kontainer .innehall .kolumner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+.kontainer .innehall .kolumner .box {
+    /* background-color: var(--beige); */
+    background: linear-gradient(to bottom, var(--beige) 50%, transparent 50%);
+    background-position: 0% 60%;
+    background-size: 100% 200%;
+    border-radius: 15px;
+    text-align: center;
+    padding: 40px;
+    /* transition: background-color 0.5s; */
+    transition: background-position 0.3s;
+    cursor: pointer;
+}
+.kontainer .innehall .kolumner .box:hover {
+    background-position: 0 0;
+}
+
+.kontainer .innehall .kolumner .box img {
+    width: 100%;
+}
+.kontainer .innehall .kolumner .box p {}

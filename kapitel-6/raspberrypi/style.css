@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidans utseende */
+body {
+    background-image: url(./bilder/bg.svg);
+}
+.kontainer {
+    font-family: "Roboto", sans-serif;
+    width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+.kontainer h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.kontainer .intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.kontainer .kolumner-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.kontainer .kolumner-3 .kolumn {
+    background-color: #fff;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+}
+.kontainer .kolumner-3 .kolumn:hover {
+    box-shadow: 0 5px 5px #AAA;
+}
+.kontainer .kolumn img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+.kontainer .kolumn h2 {
+    font-size: 18px;
+    margin: 10px;
+}
+.kontainer .kolumn p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px;
+}
+.kontainer .kolumn a {
+    margin: 10px;
+    text-decoration: none;
+    color: #234F8F;
+    font-weight: bold;
+}
