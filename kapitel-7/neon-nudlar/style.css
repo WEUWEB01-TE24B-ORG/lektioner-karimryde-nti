@@ -1,0 +1,36 @@
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+}
+
+/* Holy grail layout */
+.kontainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "namn1 namn1"
+    "namn2 namn3"
+    "namn4 namn4";
+}
+header {
+    grid-area: namn1;
+}
+main {
+    grid-area: namn2;
+}
+aside {
+    grid-area: namn3;
+}
+footer {
+    grid-area: namn4;
+}

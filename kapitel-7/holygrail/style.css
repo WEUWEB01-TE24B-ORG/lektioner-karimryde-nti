@@ -65,24 +65,35 @@ header nav a.aktiv {
 main {
     grid-area: innehåll;
     background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
 }
 main article {}
-main article h2 {}
-main article p.datum {}
+main article h2 {
+    margin-bottom: 15px;
+}
+main article p.datum {
+    margin-bottom: 15px;
+}
 main article figure {
     width: 40%;
     padding: 30px;
     border: 1px solid #AAA;
     margin: auto;
+    margin-bottom: 15px;
 }
 main article figure img {}
 main article figure figcaption {}
-main article p {}
+main article p {
+    margin-bottom: 15px;
+}
 
 /* Sidebar */
 aside {
     grid-area: sidebar;
     background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
 }
 aside h3 {}
 aside p {}
@@ -91,5 +102,8 @@ aside a {}
 /* Sidfoten */
 footer {
     grid-area: sidfot;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
 }
 footer p {}
