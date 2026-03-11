@@ -20,4 +20,4 @@
 // alert(`Jag heter ${namn} och är ${ålder} år gammal`)
 
 let namn = prompt("Vad heter du?")
-Document.writeln("Hej " + namn)
+document.writeln("Hej " + namn)
