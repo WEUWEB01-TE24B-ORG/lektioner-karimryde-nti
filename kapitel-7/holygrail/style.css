@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Lobster&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Sidans utseende */
+body {
+    background-image: url("./bilder/chuttersnap-9G1kXjqOq4U-unsplash.jpg");
+}
+.kontainer {
+    width: 1000px;
+    margin: auto;
+    padding: 30px;
+    font-family: "Libre Baskerville", serif;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    grid-template-areas: 
+    "sidhuvud sidhuvud"
+    "innehåll sidebar"
+    "sidfot sidfot";
+}
+
+/* Siduvudet */
+header {
+    grid-area: sidhuvud;
+}
+header h1 {
+    font-family: "Lobster", sans-serif;
+    color: #fff;
+    font-size: 60px;
+}
+header nav {
+    background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); 
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+header nav a {
+    color: #492121;
+    padding: 15px;
+    text-decoration: none;
+}
+header nav a:hover {
+    background: linear-gradient(to bottom, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); 
+}
+header nav a.aktiv {
+    background: linear-gradient(to bottom, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); 
+}
+
+/* Sidan innehåll */
+main {
+    grid-area: innehåll;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+main article {}
+main article h2 {
+    margin-bottom: 15px;
+}
+main article p.datum {
+    margin-bottom: 15px;
+}
+main article figure {
+    width: 40%;
+    padding: 30px;
+    border: 1px solid #AAA;
+    margin: auto;
+    margin-bottom: 15px;
+}
+main article figure img {}
+main article figure figcaption {}
+main article p {
+    margin-bottom: 15px;
+}
+
+/* Sidebar */
+aside {
+    grid-area: sidebar;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+aside h3 {}
+aside p {}
+aside a {}
+
+/* Sidfoten */
+footer {
+    grid-area: sidfot;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+footer p {}
