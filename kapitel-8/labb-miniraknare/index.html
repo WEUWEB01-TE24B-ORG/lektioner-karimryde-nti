@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniräknaren</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="huvudrubrik">🔢 Miniräknaren</h1>
+        <p class="info-text">Skriv in värden och klicka för att räkna!</p>
+
+        <div class="input-grupp">
+            <input type="text" class="tal1" placeholder="Första talet">
+            <input type="text" class="tal2" placeholder="Andra talet">
+        </div>
+
+        <div class="knapp-panel">
+            <button onclick="addera()">+ Addera</button>
+            <button onclick="subtrahera()">− Subtrahera</button>
+            <button onclick="multiplicera()">× Multiplicera</button>
+            <button onclick="dividera()">÷ Dividera</button>
+        </div>
+
+        <div class="resultat-ruta">
+            <p class="resultat">Resultatet visas här</p>
+        </div>
+
+        <div class="extra-sektion">
+            <h2>Namnhälsaren</h2>
+            <input type="text" class="namn-input" placeholder="Skriv ditt namn">
+            <button onclick="halsning()">Hälsa!</button>
+            <p class="halsning-text">...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
