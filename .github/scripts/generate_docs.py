@@ -11,7 +11,7 @@ if not GEMINI_API_KEY:
     exit(1)
 
 # Vi använder -preview eftersom modellen ofta kräver det i mars 2026
-DEFAULT_MODEL = "gemini-3.1-flash-preview"
+DEFAULT_MODEL = "gemini-3-flash-preview"
 MODEL = os.getenv("GEMINI_MODEL", DEFAULT_MODEL)
 
 client = genai.Client(api_key=GEMINI_API_KEY)
