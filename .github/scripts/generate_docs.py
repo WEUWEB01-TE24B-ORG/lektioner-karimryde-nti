@@ -1,8 +1,8 @@
 import os
 import subprocess
 import json
-from google import genai
 import datetime
+from google import genai
 
 # Konfigurera Gemini
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -10,22 +10,29 @@ if not GEMINI_API_KEY:
     print("Inget GEMINI_API_KEY hittades. Avbryter.")
     exit(1)
 
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-preview")
+# Vi använder -preview eftersom modellen ofta kräver det i mars 2026
+DEFAULT_MODEL = "gemini-3.1-flash-preview"
+MODEL = os.getenv("GEMINI_MODEL", DEFAULT_MODEL)
+
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_git_info():
-    # Hämta commit-meddelande och diff för senaste commiten
-    commit_msg = subprocess.check_output(['git', 'log', '-1', '--pretty=%B']).decode('utf-8')
-    diff = subprocess.check_output(['git', 'diff', 'HEAD~1', 'HEAD']).decode('utf-8', errors='ignore')
-    files_changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD']).decode('utf-8').splitlines()
-    
-    # Identifiera vilka mappar som ändrats (ignorera rot-filer och .github-mappen)
-    folders = set()
-    for f in files_changed:
-        if '/' in f and not f.startswith('.github'):
-            folders.add(os.path.dirname(f))
-            
-    return commit_msg, diff, list(folders)
+    """Hämtar information om senaste ändringar med felhantering."""
+    try:
+        commit_msg = subprocess.check_output(['git', 'log', '-1', '--pretty=%B']).decode('utf-8').strip()
+        # Hämtar diff mellan de två senaste commitarna
+        diff = subprocess.check_output(['git', 'diff', 'HEAD~1', 'HEAD']).decode('utf-8', errors='ignore')
+        files_changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD']).decode('utf-8').splitlines()
+        
+        folders = set()
+        for f in files_changed:
+            if '/' in f and not f.startswith('.github'):
+                folders.add(os.path.dirname(f))
+                
+        return commit_msg, diff, list(folders)
+    except subprocess.CalledProcessError as e:
+        print(f"Kunde inte hämta git-info (kanske första committen?): {e}")
+        return "Initial commit", "", []
 
 def read_file(path):
     if os.path.exists(path):
@@ -41,77 +48,58 @@ def write_file(path, content):
 def main():
     commit_msg, diff, folders = get_git_info()
     
-    if not folders:
-        print("Inga lektionsmappar ändrades. Behöver inte generera dagböcker.")
-        # Vi kan ändå vilja uppdatera history.md om rotfiler ändrats, men oftast är de kopplade.
-        if not diff:
-            return
+    if not diff and not folders:
+        print("Inga relevanta ändringar upptäcktes.")
+        return
 
     history_content = read_file('history.md')
     today = datetime.datetime.now().strftime("%Y-%m-%d")
 
     prompt = f"""
-    Du är en pedagogisk assistent för en gymnasielärare i webbutveckling/programmering.
-    Din uppgift är att skriva dokumentation baserat på lärarens senaste kod-commit. Svara ENDAST med ett giltigt JSON-objekt, ingen annan text runtom.
-
-    Här är dagens datum: {today}
-    Här är commit-meddelandet: {commit_msg}
-    Här är kod-ändringarna (git diff):
-    {diff}
-
-    Här är nuvarande innehåll i history.md:
-    {history_content}
-
-    Dina uppgifter för JSON-objektet som ska returneras:
-    1. "dagbok_updates": En array av objekt med "folder" och "content". För varje mapp som ändrats, skriv en dagbok.md. 
-       - Ton: Neutral och pedagogisk ("I den här lektionen gick vi igenom...").
-       - Innehåll: Lista nya begrepp snyggt med förklaringar (t.ex. HTML-taggar, arrayer).
-       - Exempel: Skapa korta, relevanta kodsnuttar som demonstrerar det nya (absolut INGA massiva blockdumpar av koden).
+    Du är en pedagogisk assistent för en gymnasielärare i webbutveckling.
+    Skapa dokumentation baserat på dessa ändringar.
     
-    2. "history_update": Det nya, fullständiga innehållet för history.md (i roten).
-       - Språk: Riktat direkt till gymnasieeleverna. Korrekt svenska.
-       - Struktur: Överst en snabb summeringstabell (Datum | Kapitel | Lektionsnamn). Undre sektionen ska heta "Detaljerad tidslinje" och vara en löpande, peppande berättelse månad för månad från "den allra första HTML-sidan" fram till nu. Integrera den nya lektionen smidigt i den befintliga historiken.
+    Datum: {today}
+    Commit: {commit_msg}
+    Diff: {diff}
+    Nuvarande historik: {history_content}
 
-    JSON-format att returnera:
-    {{
-      "dagbok_updates": [
-        {{ "folder": "mappnamn", "content": "# Dagbok\\n..." }}
-      ],
-      "history_update": "# Vår kodresa\\n..."
-    }}
+    Returnera ett JSON-objekt med:
+    1. "dagbok_updates": Array med {{"folder": "namn", "content": "markdown-text"}}.
+    2. "history_update": Sträng med hela den nya versionen av history.md.
     """
 
-    print("Skickar data till Gemini...")
-    response = client.models.generate_content(model=MODEL, contents=prompt)
+    print(f"Anropar {MODEL} med JSON-mode...")
     
-    # Rensa bort eventuella markdown-kodblock från svaret (```json ... ```)
-    response_text = response.text.strip()
-    if response_text.startswith("```json"):
-        response_text = response_text[7:]
-    if response_text.startswith("```"):
-        response_text = response_text[3:]
-    if response_text.endswith("```"):
-        response_text = response_text[:-3]
+    # JSON-mode aktiveras här via config
+    response = client.models.generate_content(
+        model=MODEL,
+        contents=prompt,
+        config={
+            'response_mime_type': 'application/json',
+            'temperature': 0.2, # Lägre temperatur för stabilare JSON
+        }
+    )
 
     try:
-        data = json.loads(response_text)
+        # Tack vare JSON-mode kan vi ladda response.text direkt
+        data = json.loads(response.text)
         
         # Spara dagböcker
         for update in data.get("dagbok_updates", []):
             folder = update.get("folder")
-            if folder in folders: # Verifiera att det är en ändrad mapp
-                dagbok_path = os.path.join(folder, 'dagbok.md')
-                write_file(dagbok_path, update.get("content"))
-                print(f"Uppdaterade {dagbok_path}")
+            dagbok_path = os.path.join(folder, 'dagbok.md')
+            write_file(dagbok_path, update.get("content"))
+            print(f"✅ Uppdaterade {dagbok_path}")
 
         # Spara history.md
         if data.get("history_update"):
             write_file("history.md", data.get("history_update"))
-            print("Uppdaterade history.md")
+            print("✅ Uppdaterade history.md")
 
-    except json.JSONDecodeError as e:
-        print("Kunde inte tolka svaret från Gemini som JSON.")
-        print("Svar var:", response.text)
+    except json.JSONDecodeError:
+        print("❌ Fel: Gemini returnerade ogiltig JSON.")
+        print("Svar:", response.text)
 
 if __name__ == "__main__":
     main()
