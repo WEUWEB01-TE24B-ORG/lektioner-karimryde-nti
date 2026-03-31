@@ -34,7 +34,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Här styr vi vilken modell skriptet faktiskt använder
-          GEMINI_MODEL: gemini-2.0-flash
+          GEMINI_MODEL: gemini-3-flash-preview
         run: python .github/scripts/generate_docs.py
 
       - name: Commit and push changes
